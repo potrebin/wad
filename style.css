@@ -1,0 +1,161 @@
+
+p, td, th, li {
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+    font-family: Verdana;
+}
+h2 {
+    color: rgb(0, 0, 0);
+    font-size: 30px;
+    font-family: Verdana;
+    text-align: center;
+    margin-top: 3rem;
+}
+
+nav {
+    background-color: rgb(87, 87, 87);
+    display: flex;
+    align-items: center;
+    padding: 2rem;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+#logo {
+    width: 4rem;
+    border-radius: 20%;
+    float: right;
+}
+
+ .nav-links > a, .nav-links > span {
+    color: white;
+    font-size: 20px;
+    font-family: Verdana;
+    margin: 10px;
+}
+.nav-links {
+    display: flex;
+    flex-direction: row;
+}
+nav a:hover {
+    background-color: rgb(54, 151, 255);
+}
+
+footer {
+    background-color: rgb(87, 87, 87);
+    display: flex;
+    align-items: center;
+    padding: 2rem;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.middle-section {
+    display: flex;
+    flex-direction: row;
+}
+
+.left-bar, .right-bar {
+    background-color: gray;
+    width: 15vw;
+}
+
+.posts > .posts-begin {
+    color: rgb(103, 80, 194);
+    font-style: italic;
+}
+.posts {
+    width: 70vw;
+    margin: 0 5vw 5vw 5vw;
+}
+
+.post {
+    background-color: rgb(240, 240, 240);
+    border-radius: 30px;
+    border: solid 2px rgb(200, 200, 200);
+    margin: 2rem 0 2rem 0;
+    padding: 2rem;
+}
+
+.posts-begin + div {
+    background-color: rgb(236, 232, 254);
+    border: solid 5px rgb(119, 106, 178);
+    margin-top: 1rem;
+    margin-bottom: 5rem;
+}
+
+.post-top {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.post-content img {
+    width: 100%;
+    border-radius: 10px;
+}
+.post-content a {
+    font-family: Verdana;
+    color: rgb(17, 78, 201);
+    font-size: 20px;
+}
+.post-content a:hover {
+    color: rgb(47, 158, 255);
+}
+
+.post-top img {
+    border-radius: 100%;
+    width: 3rem;
+}
+
+.post-bottom {
+    padding-top: 1rem;
+}
+
+.post-bottom .like-button {
+    border-radius: 100%;
+    width: 2rem;
+}
+.post-bottom .like-button:hover {
+    opacity: 0.6;
+}
+.post-top ~ div {
+    margin-top: 2rem;
+}
+
+.post-content table {
+    width: 100%;
+    border-collapse: collapse;
+    border: solid 2px rgb(19, 52, 19);
+}
+.post-content td {
+    border: solid 2px rgb(19, 52, 19);
+    text-align: center;
+    background-color: rgb(223, 254, 223);;
+    width: 25%;
+}
+.post-content th {
+    border: solid 2px rgb(19, 52, 19);
+    text-align: center;
+    background-color: rgb(188, 239, 188);;
+}
+.post-content td:hover{
+    background-color: rgb(244, 255, 240);;
+}
+
+li {
+    list-style: square;
+    margin-top: 10px;
+}
+
+footer img {
+    width: 4rem;
+    border-radius: 10px;
+}
+footer > .footer-left > p {
+    color: white;
+    font-size: 16px;
+    font-family: Verdana;
+    margin: 6px;
+}
