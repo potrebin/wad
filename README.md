@@ -2,8 +2,8 @@
 
 ### Team members
 
-Robert Erik Pass
-Ann Marleen Varul
+Robert Erik Pass<br>
+Ann Marleen Varul<br>
 Andrei Potrebin
 
 (Practice session 4, team H)
