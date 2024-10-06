@@ -2,12 +2,36 @@
 <html>
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Title</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    
+    <header>
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <img src="logo.jpg" alt="logo" id="logo">
+        </nav>
+    </header>
+
+    <section>
+        <form action="index.html" method="post" class="container">
+            <div class="logintext">
+                <h2>Welcome to PostIt</h2>
+                <label id="createaccount-button">Create an account</label>
+                <label>or please log in</label>
+            </div>
+            <div class="loginform">
+                <form action="/submit">
+                    <input type="text" placeholder="Email" required>
+                    <input type="password" placeholder="Password" required>
+                    <button type="submit">Log in</button>
+                </form>
+                <label id="createaccount-button">Forgot password</label>
+            </div>
+        </form>
+    </section>
 </body>
 
 </html>
