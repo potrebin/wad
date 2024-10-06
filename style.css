@@ -316,7 +316,12 @@ form button:hover {
         width: 100%; 
         min-width: unset;
     }
-    
+    .left-bar, .right-bar {
+        display: none;
+    }
+    .posts {
+        width: 100%;
+    }
     
     
     
