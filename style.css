@@ -179,12 +179,15 @@ section {
     display: flex;
     flex-direction: column; 
     justify-content: space-evenly;
-    align-items:self-start;
+    align-items:flex-start;
     background-color: rgb(226, 221, 221);
     gap: 3rem;
-    padding: 4rem;     
-    margin: 0.5rem;
+    padding: 4rem 2rem 4rem 1rem;     
+    margin: 1rem;
     border-radius: 4px;  
+    width: 50%;
+    max-width: 90%;
+    box-sizing: border-box;
 }
 textarea {
     background-color: #f8f8f8;
@@ -193,6 +196,9 @@ textarea {
     min-height: 12rem;
     min-width: 18rem;
     border: none;
+    min-width: 60%;
+    max-width: 90%;
+    margin-right: 2rem;
 }
 
 .submit{
@@ -215,10 +221,13 @@ textarea {
     font-family: Arial, Helvetica, sans-serif;
     cursor: pointer;
     display: block;
+    text-align: center; /* Horisontaalne keskjoondamine */
+    line-height: 1.5rem; /* Vertikaalne joondamine vastavalt kõrgusele */
+    height: 1.5rem;
     color:white;
     background-color: #6d717a;
-    padding: 0.9rem 2rem;
-    font-size: 1rem;
+    padding: 0.2rem 0.5rem 0.2rem 0.5rem;
+    font-size: 16px;
     white-space: nowrap;
     
     
@@ -229,10 +238,13 @@ textarea {
     display: flex; 
     font-size: 20px;
     margin-right: 2rem;
+    width: 100%;
 }
 
 .addpost label{
     margin-right: 20px;
+    min-width: 100px;
+    max-width: 5px; 
 }
 
 
@@ -241,25 +253,27 @@ textarea {
 
 
 
-@media (max-width: 600px) {
+@media (max-width: 700px) {
     section {
         padding: 2rem;
     }
     .container {
-        padding: 2rem 1rem;
+        width: 90%;
+        padding: 4rem 1rem;
         gap: 2rem;
-        border-radius: 3px;
+        
     }
     #postBody {
         font-size: 14px;
-        min-height: 200px; /* Suurem kõrgus mobiilivaates */
+        min-height: 200px; 
     }
     textarea {
         font-size: 16px;
         min-height: 12rem;
-        min-width: 10rem;
+        width: 100%; 
+        min-width: unset;
     }
-
+    
     
     
     
