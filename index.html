@@ -10,12 +10,21 @@
     <header>
         <nav>
             <div class="nav-links">
-                <a href="login.html">Home</a>
+                <a href="index.html">Home</a>
                 <span> | </span>
                 <a href="addPost.html">addPost</a>
             </div>        
             
-            <img src="logo.jpg" alt="logo" id="logo">
+            <img src="resources/logo.jpg" alt="logo" id="logo">
+            <div class="dropdown" id="dropdownButton">
+                <div class="dropdown-row">
+                    <span>John Doe</span>
+                </div>
+                <div class="dropdown-row">
+                    <span>john.doe@example.com</span>
+                </div>
+                <a href="login.html">Logout</a>
+            </div>
         </nav>
     </header>
     
@@ -25,107 +34,12 @@
             
         </div>
 
-        <div class="posts">
+        <div class="post-section">
 
-            <h2>Welcome to homework 1</h2>
+            <h2>Welcome!</h2>
 
-            <p class="posts-begin">The latest post:</p>
-
-            <div class="post">
-                <div class="post-top">
-                    <img src="no_pfp.jpg" alt="profile picture">
-                    <p>Oct 3, 2024</p>
-                </div>
-                <div class="post-content">
-                    <img src="UT.jpg" alt="University of Tartu">
-                    <p>Tartu 2024</p>
-                </div>
-                <div class="post-bottom">
-                    <a href="#"> <img src="like_icon.jpg" alt="like" class="like-button"> </a>
-                </div>
-            </div>
-
-            <div class="post">
-                <div class="post-top">
-                    <img src="no_pfp.jpg" alt="profile picture">
-                    <p>Oct 2, 2024</p>
-                </div>
-                <div class="post-content">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas fringilla felis id tellus euismod, ut tempus sem volutpat.</p>
-                    <p>Nullam eget luctus lorem, sed fermentum orci.</p>
-                </div>
-                <div class="post-bottom">
-                    <a href="#"> <img src="like_icon.jpg" alt="like" class="like-button"> </a>
-                </div>
-            </div>
-
-            <div class="post">
-                <div class="post-top">
-                    <img src="no_pfp.jpg" alt="profile picture">
-                    <p>Oct 1, 2024</p>
-                </div>
-                <div class="post-content">
-                    <img src="Tartu.jpg" alt="Tartu">
-                    <p>Tartu</p>
-                    <p>Morbi vitae magna et turpis gravida efficitur. Praesent porttitor mauris nec nisl rutrum blandit.</p>
-                    <p><strong>Consequat nisl volutpat</strong> felis varius, vitae placerat sapien pulvinar. Sed dolor sapien, faucibus a lobortis in, condimentum rutrum lectus. Curabitur eu tempus nunc. Proin ultricies vestibulum consectetur. Suspendisse ut cursus sapien. Etiam tristique ut nunc sed auctor.</p>
-                    <p>Where these images came from: <a href="https://en.wikipedia.org/wiki/Tartu" target="_blank">Wikipedia</a></p>
-                </div>
-                <div class="post-bottom">
-                    <a href="#"> <img src="like_icon.jpg" alt="like" class="like-button"> </a>
-                </div>
-            </div>
-
-            <div class="post">
-                <div class="post-top">
-                    <img src="no_pfp.jpg" alt="profile picture">
-                    <p>Sept 30, 2024</p>
-                </div>
-                <div class="post-content">
-                    <p>Found this fascinating table yesterday, so escited to share it!</p>
-                    <table>
-                        <tr>
-                            <th></th>
-                            <th>a</th>
-                            <th>b</th>
-                            <th>c</th>
-                        </tr>
-                        <tr>
-                            <td>Something 1</td>
-                            <td>1</td>
-                            <td>2</td>
-                            <td>3</td>
-                        </tr>
-                        <tr>
-                            <td>Something 2</td>
-                            <td>4</td>
-                            <td colspan="2">5</td>
-                        </tr>
-                    </table>
-                </div>
-                <div class="post-bottom">
-                    <a href="#"> <img src="like_icon.jpg" alt="like" class="like-button"> </a>
-                </div>
-            </div>
-
-            <div class="post">
-                <div class="post-top">
-                    <img src="no_pfp.jpg" alt="profile picture">
-                    <p>Sept 29, 2024</p>
-                </div>
-                <div class="post-content">
-                    <img src="UT.jpg" alt="University of Tartu">
-                    <p>In mauris lorem, pharetra eget nisi sit amet, dignissim tincidunt elit. Quisque eget dignissim enim. Nunc nec accumsan ante. Curabitur tempus molestie vestibulum. Praesent mauris nibh, dapibus sed eleifend nec, auctor in sem. Etiam pellentesque vulputate eros, quis sagittis ipsum tristique nec.</p>
-                    <ul>
-                        <li>Fact 1</li>
-                        <li>Fact 2</li>
-                        <li>Fact 3</li>
-                        <li><a href="https://en.wikipedia.org/wiki/Tartu" target="_blank">Find out more</a></li>
-                    </ul>
-                </div>
-                <div class="post-bottom">
-                    <a href="#"> <img src="like_icon.jpg" alt="like" class="like-button"> </a>
-                </div>
+            <div class="posts" id="posts">
+                <p class="posts-begin">The latest post:</p>
             </div>
 
         </div>
@@ -141,10 +55,12 @@
             <p>Web Application Development</p>
             <p>Tartu 2024</p>
         </div>
-        <div class="footer-left">
+        <div class="footer-right">
             <a href="#"> <img src="sm_icon1.jpg" alt="social"> </a>
         </div>
     </footer>
+
+    <script src="code.js"></script>
     
 </body>
 
