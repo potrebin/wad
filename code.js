@@ -14,7 +14,9 @@ logo.addEventListener("click", function () {
 
 async function loadPosts() {
     try {
-        const postsFile = await fetch("https://api.jsonbin.io/v3/b/6723d61ead19ca34f8c1c5ea");
+        //const postsFile = await fetch("https://api.jsonbin.io/v3/b/6723d61ead19ca34f8c1c5ea");
+        const postsFile = await fetch("../jsonfile.json")
+
         const postsJson = await postsFile.json();
         const posts = postsJson.record || postsJson;
         const postsContainer = document.getElementById('posts');
