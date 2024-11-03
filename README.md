@@ -9,5 +9,5 @@ Andrei Potrebin
 (Practice session 4, team H)
 
 <br><br>
-Posts are fetched from this json
+HW2 task 3 json
 [https://api.jsonbin.io/v3/b/6723d61ead19ca34f8c1c5ea](https://api.jsonbin.io/v3/b/6723d61ead19ca34f8c1c5ea)
