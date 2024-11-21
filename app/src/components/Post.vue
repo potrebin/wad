@@ -33,22 +33,53 @@
         </div>
         
         <div class="post-bottom">
-        <img src="../assets/like_icon.jpg" alt="like" class="like-button">
-        </div>
+            <img src="../assets/like_icon.jpg" alt="like" class="like-button" @click="incrementLikes"/>
+            <span class="like-count">{{ likes }} likes</span>
+            </div>
     </div>
 </template>
 
 <script>
 export default {
-    name: 'Post',
-    props: {
-        post:Object,
+  name: "Post",
+  props: {
+    post: Object,
+  },
+  data() {
+    return {
+      likes: 0,
+    };
+  },
+  methods: {
+    incrementLikes() {
+      this.likes++;
     },
-}
-
+    resetLikes() {
+      this.likes = 0; // Reset the like count
+    },
+  },
+};
 </script>
 
 <style scoped>
+p, td, th, li {
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+    font-family: Verdana;
+}
+.like-count {
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+    font-family: Verdana;
+    margin-left: 8px;
+}
+h2 {
+    color: rgb(0, 0, 0);
+    font-size: 30px;
+    font-family: Verdana;
+    text-align: center;
+    margin-top: 3rem;
+}
 .posts > .posts-begin {
     color: rgb(103, 80, 194);
     font-style: italic;
@@ -62,7 +93,7 @@ export default {
     background-color: rgb(211, 213, 255);
     border-radius: 30px;
     border: solid 2px rgb(200, 200, 200);
-    margin: 2rem 0 2rem 0;
+    margin: 4rem 6rem 4rem 6rem;
     padding: 2rem;
 }
 
@@ -110,7 +141,10 @@ export default {
 }
 
 .post-bottom {
-    padding-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
 }
 
 .post-bottom .like-button {

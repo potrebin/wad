@@ -7,8 +7,10 @@
             <h2>Welcome!</h2>
 
             <div id="posts">
-              <Post v-for="post in posts" :key="post.id" :post="post"/>
+              <Post v-for="post in posts" :key="post.id" :post="post" ref="postRefs"/>
             </div>
+
+            <button class="reset-likes-button" @click="resetAllLikes">Reset All Likes</button>
 
         </div>
 
@@ -32,14 +34,54 @@ export default {
     console.log(this.$store.state.posts); // Check if posts data is available
     return this.$store.state.posts;
   },
-},
+  },
+  methods: {
+      resetAllLikes() {
+        this.$refs.postRefs.forEach((postRef) => {
+          if (postRef) postRef.resetLikes();
+        });
+      },
+    },
 }
 </script>
 
 <style scoped>
+p, td, th, li {
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+    font-family: Verdana;
+}
+h2 {
+    color: rgb(0, 0, 0);
+    font-size: 30px;
+    font-family: Verdana;
+    text-align: center;
+    margin-top: 3rem;
+}
 .middle-section {
     display: flex;
     flex-direction: row;
+}
+.post-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.reset-likes-button {
+  text-align: center;
+  background-color: rgb(99, 150, 243);
+  color: rgb(0, 0, 0);
+  font-size: 20px;
+  font-family: Verdana;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 15px;
+  margin: 2rem 0 2rem;
+  box-shadow: 0 2px 12px rgb(56, 56, 56);
+}
+
+.reset-likes-button:hover {
+  background-color: rgb(137, 186, 250);
 }
 
 .left-bar, .right-bar {
