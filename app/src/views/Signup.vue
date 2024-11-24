@@ -108,7 +108,7 @@ h2 {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 66vh;
+  height: 100vh;
   background: linear-gradient(to bottom, #777dcb, #789ac9);
   margin: 0;
 }

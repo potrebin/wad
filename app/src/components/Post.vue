@@ -33,26 +33,27 @@
         </div>
         
         <div class="post-bottom">
-            <img src="../assets/like_icon.jpg" alt="like" class="like-button" @click="incrementLikes"/>
-            <span class="like-count">{{ likes }} likes</span>
+            <img src="../assets/like_icon.jpg" alt="like" class="like-button" @click="incrementLikes(postId)"/>
+            <span class="like-count">{{ post.likes }} likes</span>
             </div>
     </div>
 </template>
 
 <script>
+import { mapGetters, mapActions } from 'vuex';
+
 export default {
-  name: "Post",
-  props: {
-    post: Object,
-  },
-  data() {
-    return {
-      likes: 0,
-    };
+  props: ['postId'],
+  computed: {
+    ...mapGetters(['getPostById']),
+    post() {
+      return this.getPostById(this.postId);
+    },
   },
   methods: {
-    incrementLikes() {
-      this.likes++;
+    ...mapActions(['likePost']),
+    incrementLikes(postId) {
+      this.likePost(postId);
     },
     resetLikes() {
       this.likes = 0; // Reset the like count

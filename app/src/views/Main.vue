@@ -7,7 +7,7 @@
             <h2>Welcome!</h2>
 
             <div id="posts">
-              <Post v-for="post in posts" :key="post.id" :post="post" ref="postRefs"/>
+              <Post v-for="(post, index) in posts" :key="index" :postId="index" />
             </div>
 
             <button class="reset-likes-button" @click="resetAllLikes">Reset All Likes</button>
@@ -22,6 +22,7 @@
 
 <script>
 import Post from '@/components/Post.vue'
+import { mapGetters, mapActions } from 'vuex';
 
 
 export default {
@@ -30,19 +31,20 @@ export default {
     Post,
   },
   computed: {
-  posts() {
-    console.log(this.$store.state.posts); // Check if posts data is available
-    return this.$store.state.posts;
-  },
+    ...mapGetters(['allPosts']),
+
+    posts() {
+      return this.allPosts; 
+    },
   },
   methods: {
-      resetAllLikes() {
-        this.$refs.postRefs.forEach((postRef) => {
-          if (postRef) postRef.resetLikes();
-        });
-      },
-    },
-}
+    ...mapActions(['likePost']), 
+
+    resetAllLikes() {
+  this.$store.commit('resetAllLikes');
+},
+  },
+};
 </script>
 
 <style scoped>
