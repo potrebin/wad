@@ -25,7 +25,7 @@
             />
           </div>
   
-          <button type="submit" class="signup-btn">Signup</button>
+          <button type="submit"  @click="SignUp" class="signup-btn">Signup</button>
         </form>
   
         <div v-if="errorMessages.length > 0" class="error-messages">
@@ -44,14 +44,40 @@
 <script>
 
 export default {
-  data() {
-    return {
-      email: "",
-      password: "",
-      errorMessages: [],
-    };
-  },
+  name: "SignUp",
+  data: function() {
+  return {
+    email: '',
+    password: '',
+    errorMessages: [], // Lisa siia
+  };
+},
   methods: {
+    SignUp() {
+      var data = {
+        email: this.email,
+        password: this.password
+      };
+      // using Fetch - post method - send an HTTP post request to the specified URI with the defined body
+      fetch("http://localhost:3000/auth/signup", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+          credentials: 'include', //  Don't forget to specify this if you need cookies
+          body: JSON.stringify(data),
+      })
+      .then((response) => response.json())
+      .then((data) => {
+      console.log(data);
+      this.$router.push("/");
+      //location.assign("/");
+      })
+      .catch((e) => {
+        console.log(e);
+        console.log("error");
+      });
+    },
     validateForm() {
       this.errorMessages = [];
       const password = this.password;
@@ -82,7 +108,7 @@ export default {
       }
 
       if (this.errorMessages.length === 0) {
-        this.$router.push({ name: 'main' });        
+        this.SignUp();        
       }
     },
   },
