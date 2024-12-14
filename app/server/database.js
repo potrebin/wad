@@ -26,8 +26,8 @@ const createTblQuery1 = `
     CREATE TABLE IF NOT EXISTS "posts" (
 	    "id" SERIAL PRIMARY KEY,         
 	    "date" DATE NOT NULL,
-	    "body" VARCHAR(200) NOT NULL,
-        "urllink" VARCHAR(200)  
+	    "body" VARCHAR NOT NULL,
+        "urllink" VARCHAR
     );`;
 
 const createTblQuery2 = `

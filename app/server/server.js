@@ -28,6 +28,19 @@ app.listen(port, () => {
     console.log("Server is listening to port " + port)
 });
 
+// TESTING - TO DELETE
+app.get('/users', async (req, res) => {
+    try {
+        const result = await pool.query('SELECT * FROM posts');
+        console.log(result.rows);
+        res.status(200).json(result.rows);
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).json({ error: err.message });
+    }
+});
+
+
 
 // is used to check whether a user is authinticated
 app.get('/auth/authenticate', async(req, res) => {
@@ -58,6 +71,16 @@ app.get('/auth/authenticate', async(req, res) => {
         res.status(400).send(err.message);
     }
 });
+
+app.get('/api/posts', async (req, res) => {
+    try {
+      const result = await pool.query('SELECT * FROM posts');
+      res.status(200).json(result.rows);
+    } catch (err) {
+      console.error(err.message);
+      res.status(500).json({ error: err.message });
+    }
+  });
 
 // signup a user
 app.post('/auth/signup', async(req, res) => {
@@ -120,8 +143,78 @@ app.post('/auth/login', async(req, res) => {
     }
 });
 
+app.post('/api/posts', async (req, res) => {
+    const { body, urllink } = req.body;
+    const date = new Date().toISOString().split('T')[0]; // Get the current date in 'YYYY-MM-DD' format
+  
+    try {
+      const query = `
+        INSERT INTO posts (date, body, urllink)
+        VALUES ($1, $2, $3)
+        RETURNING *;
+      `;
+      const values = [date, body, urllink];
+  
+      const result = await pool.query(query, values);
+      res.status(201).json(result.rows[0]); // Send the newly created post as the response
+    } catch (error) {
+      console.error('Error inserting post:', error.message);
+      res.status(500).send('Server Error');
+    }
+  });
+
 //logout a user = deletes the jwt
 app.get('/auth/logout', (req, res) => {
     console.log('delete jwt request arrived');
-    res.status(202).clearCookie('jwt').json({ "Msg": "cookie cleared" }).send
+    res.status(200).clearCookie('jwt').json({ "Msg": "cookie cleared" });
 });
+
+app.delete('/api/posts', async (req, res) => {
+    try {
+      await pool.query('DELETE FROM posts');
+      res.status(200).json({ message: 'All posts deleted successfully' });
+    } catch (error) {
+      console.error('Error deleting posts:', error.message);
+      res.status(500).send('Server Error');
+    }
+  });
+
+  app.get('/api/posts/:id', async (req, res) => {
+    try {
+      const { id } = req.params;
+      const result = await pool.query("SELECT * FROM posts WHERE id = $1", [id]);
+      if (result.rows.length === 0) {
+        return res.status(404).json({ error: "Post not found" });
+      }
+      res.json(result.rows[0]);
+    } catch (err) {
+      console.error(err.message);
+      res.status(500).json({ error: "Server error" });
+    }
+  });
+  
+  app.put('/api/posts/:id', async (req, res) => {
+    try {
+      const { id } = req.params;
+      const { body } = req.body;
+      await pool.query(
+        "UPDATE posts SET body = $1 WHERE id = $2",
+        [body, id]
+      );
+      res.json({ message: "Post updated successfully" });
+    } catch (err) {
+      console.error(err.message);
+      res.status(500).json({ error: "Server error" });
+    }
+  });
+  
+  app.delete('/api/posts/:id', async (req, res) => {
+    try {
+      const { id } = req.params;
+      await pool.query("DELETE FROM posts WHERE id = $1", [id]);
+      res.json({ message: "Post deleted successfully" });
+    } catch (err) {
+      console.error(err.message);
+      res.status(500).json({ error: "Server error" });
+    }
+  });
