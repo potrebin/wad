@@ -25,7 +25,7 @@
             />
           </div>
   
-          <button type="submit"  @click="SignUp" class="signup-btn">Signup</button>
+          <button type="submit" class="signup-btn">Signup</button>
         </form>
   
         <div v-if="errorMessages.length > 0" class="error-messages">
@@ -87,7 +87,11 @@ export default {
       const regexNumber = /[0-9]/;
       const regexStartsWithUpperc = /^[A-Z]/;
       const regexUnderscore = /_/;
-
+      const regexEmail = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/
+      
+      if(!regexEmail.test(this.email)){
+        this.errorMessages.push("Please enter a correct email")
+      }
       if (password.length < 8 || password.length >= 15) {
         this.errorMessages.push("The password must be between 8 and 15 characters.");
       }
@@ -106,7 +110,6 @@ export default {
       if (!regexUnderscore.test(password)) {
         this.errorMessages.push('The password must include the character "_".');
       }
-
       if (this.errorMessages.length === 0) {
         this.SignUp();        
       }
