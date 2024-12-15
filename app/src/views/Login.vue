@@ -1,15 +1,20 @@
 <template>
+<div class = "container">
   <div class="form">
-    <h3>LogIn</h3>
-    <label for="email">Email</label>
-    <input type="email" name="email"  required v-model="email">
-    <label for="password">Password</label>
-    <input type="password" name="password" required v-model="password">
-    <div class="container">
+    <div class="form-group">
+    <label for="email">Email:</label>
+    <input type="email" name="email"  required placeholder="Enter your email" v-model="email">
+    </div>
+    <div class="form-group">
+    <label for="password">Password:</label>
+    <input type="password" name="password" required placeholder="Enter your password" v-model="password">
+    </div>
+    <div class="buttons-container">
       <button @click="LogIn"  class="center">LogIn</button>
       <button @click='this.$router.push("/signup")' class="center">Signup</button>
     </div>
   </div>
+</div>
 </template>
 
 <script>
@@ -56,35 +61,11 @@ LogIn() {
 </script>
 
 <style scoped>
-.form {
-  max-width: 420px;
-  margin: 30px auto;
-  background: rgb(167, 154, 154);
-  text-align: left;
-  padding: 40px;
-  border-radius: 10px;
-}
-h3 {
-  text-align: center;
-  color: rgb(8, 110, 110);
-}
 label {
-  color: rgb(8, 110, 110);
-  display: inline-block;
-  margin: 25px 0 15px;
-  font-size: 0.8em;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  font-weight: bold;
-}
-input {
   display: block;
-  padding: 10px 6px;
-  width: 100%;
-  box-sizing: border-box;
-  border: none;
-  border-bottom: 1px solid white;
-  color: blue;
+  font-size: 16px;
+  margin-bottom: 0.5rem;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 button {
   background: rgb(8, 110, 110);
@@ -96,6 +77,9 @@ button {
   align-items: center;
   text-align: center;
 }
+button:hover {
+  background-color: #45a049;
+}
 .center {
   margin: auto;
   border: 0;
@@ -103,8 +87,35 @@ button {
   margin-top: 20px;
   width: 30%; 
 }
+.buttons-container {
+  display: flex;
+  justify-content: center;
+}
+.form{
+  background-color: #bae6b5;
+  border-radius: 15px;
+  padding: 2rem;
+  width: 400px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+.form-group {
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+input {
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
 .container {
   display: flex;
   justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(to bottom, #777dcb, #789ac9);
+  margin: 0;
 }
 </style>

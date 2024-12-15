@@ -170,14 +170,17 @@ input {
   border-radius: 8px;
 }
 .signup-btn {
-  background-color: #4caf50;
-  color: white;
   padding: 0.75rem 1.5rem;
   font-size: 16px;
   border: none;
-  border-radius: 8px;
   cursor: pointer;
   margin-top: 1rem;
+  background: rgb(8, 110, 110);
+  border: 0;
+  color: white;
+  border-radius: 20px;
+  align-items: center;
+  text-align: center;
 }
 
 .signup-btn:hover {
