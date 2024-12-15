@@ -11,16 +11,16 @@ import APost from '@/views/APost.vue';
 
 const routes = [{
   path: "/",
-        name: "posts",
-        component: Posts,
-        beforeEnter: async(to, from, next) => {
-            let authResult = await auth.authenticated(); //meetod auth failis
-            if (!authResult) {
-                next('/login')
-            } else {
-                next();
-            }
-        }
+  name: "posts",
+  component: Posts,
+  beforeEnter: async(to, from, next) => {
+      let authResult = await auth.authenticated();
+      if (!authResult) {
+          next('/login')
+      } else {
+          next();
+      }
+  }
   },
   {
     path: '/signup',
@@ -41,12 +41,33 @@ const routes = [{
     path: "/addpost",
     name: "AddPost",
     component: AddPost,
+    beforeEnter: async(to, from, next) => {
+      let authResult = await auth.authenticated(); 
+      if (!authResult) {
+          next('/login')
+      } else {
+          next();
+      }
+  }
   },
   {
     path: "/apost/:id",
     name: "APost",
     component: APost,
-  }
+    beforeEnter: async(to, from, next) => {
+      let authResult = await auth.authenticated(); 
+      if (!authResult) {
+          next('/login')
+      } else {
+          next();
+      }
+    }
+  },
+  { //will route to AllPosts view if none of the previous routes apply
+    path: "/:catchAll(.*)",
+    name: "Login",
+    component: LogIn,
+}
 ]
 
 const router = createRouter({
